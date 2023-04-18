@@ -1,10 +1,11 @@
 import "./App.css";
-import { Controls } from "./Controls";
-import { Display } from "./Display";
+import React from "react";
 import { useState } from "react";
+import Display from "./Display";
+import Controls from "./Controls";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
   function Increment() {
     if (count <= 4) setCount(count + 1);
   }
