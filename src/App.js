@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Controls } from "./Controls";
+import { Display } from "./Display";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+  function Increment() {
+    if (count <= 4) setCount(count + 1);
+  }
+  function Reset() {
+    setCount(0);
+  }
+  function Decrement() {
+    setCount(count - 1);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Display count={count} />
+      <Controls increment={Increment} reset={Reset} decrement={Decrement} />
     </div>
   );
 }
